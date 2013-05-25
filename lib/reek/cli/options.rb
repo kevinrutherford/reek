@@ -24,6 +24,7 @@ module Reek
         @format = Report::DefaultFormat
         @config_files = []
         @sort_by_issue_count = false
+        @smells_to_detect = []
         set_options
       end
 
@@ -72,6 +73,9 @@ EOB
         @parser.separator "\nConfiguration:"
         @parser.on("-c", "--config FILE", "Read configuration options from FILE") do |file|
           @config_files << file
+        end
+        @parser.on("-s", "--smell SMELL", "Detect smell SMELL") do |smell|
+          @smells_to_detect << smell
         end
 
         @parser.separator "\nReport formatting:"
