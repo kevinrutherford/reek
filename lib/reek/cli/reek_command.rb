@@ -8,14 +8,15 @@ module Reek
     # text report format.
     #
     class ReekCommand
-      def self.create(sources, reporter, config_files = [])
-        new(reporter, sources, config_files)
+      def self.create(sources, reporter, config_files = [], smell_names = [])
+        new(reporter, sources, config_files, smell_names)
       end
 
-      def initialize(reporter, sources, config_files = [])
+      def initialize(reporter, sources, config_files = [], smell_names = [])
         @sources = sources
         @reporter = reporter
         @config_files = config_files
+        @smell_names = smell_names
       end
 
       def execute(app)

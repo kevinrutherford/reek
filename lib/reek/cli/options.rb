@@ -114,7 +114,7 @@ EOB
         else
           Rainbow.enabled = @colored
           reporter = @report_class.new(@warning_formatter, ReportFormatter, @sort_by_issue_count, @format)
-          ReekCommand.create(get_sources, reporter, @config_files)
+          ReekCommand.create(get_sources, reporter, @config_files, @smells_to_detect)
         end
       end
 
