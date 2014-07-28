@@ -4,7 +4,7 @@ Feature: Smell selection
   I want to be able to selectively activate smell detectors
 
   Scenario: --smell selects a smell to detect
-    When I run reek --smell DuplicateMethodCall spec/samples/two_smelly_files
+    When I run reek --no-line-numbers --only DuplicateMethodCall spec/samples/two_smelly_files
     Then the exit status indicates smells
     And it reports:
       """

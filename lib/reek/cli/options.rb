@@ -74,7 +74,7 @@ EOB
         @parser.on("-c", "--config FILE", "Read configuration options from FILE") do |file|
           @config_files << file
         end
-        @parser.on("-s", "--smell SMELL", "Detect smell SMELL") do |smell|
+        @parser.on("--only SMELL", "Detect smell SMELL") do |smell|
           @smells_to_detect << smell
         end
 
