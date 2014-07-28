@@ -5,6 +5,7 @@ require 'reek/smells/smell_detector_shared'
 include Reek
 include Reek::Smells
 
+# TODO: Bring specs in line with specs for other detectors
 describe UtilityFunction do
   before(:each) do
     @source_name = 'loser'

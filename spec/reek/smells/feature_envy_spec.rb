@@ -5,6 +5,7 @@ require 'reek/smells/smell_detector_shared'
 include Reek
 include Reek::Smells
 
+# TODO: Bring specs in line with specs for other detectors
 describe FeatureEnvy do
   context 'with no smell' do
     it 'should not report use of self' do

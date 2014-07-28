@@ -7,6 +7,7 @@ require 'reek/smells/smell_detector_shared'
 include Reek
 include Reek::Smells
 
+# TODO: Bring specs in line with specs for other detectors
 def process_method(src)
   source = src.to_reek_source
   sniffer = Core::Sniffer.new(source)
