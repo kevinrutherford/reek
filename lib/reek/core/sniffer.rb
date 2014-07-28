@@ -13,16 +13,13 @@ module Reek
 
       # FIXME: Pass ConfigFile objects instead of file names
       # FIXME: Demand SmellRepository to always be passed
-      def initialize(src, config_files = [], smell_repository=Core::SmellRepository.new(src.desc))
+      def initialize(src, extra_config_files = [], smell_repository=Core::SmellRepository.new(src.desc))
         @smell_repository = smell_repository
-        # FIXME: We want to configure the @smell_repostory here, pass that to configure
-        config_files.each{ |cf| Reek::Source::ConfigFile.new(cf).configure(self) }
         @source = src
-        src.configure(self)
-      end
 
-      def configure(klass, config)
-        @smell_repository.configure klass, config
+        # TODO: Move to caller of Sniffer.new
+        config_files = extra_config_files + @source.relevant_config_files
+        config_files.each{ |cf| Reek::Source::ConfigFile.new(cf).configure(@smell_repository) }
       end
 
       def report_on(listener)
