@@ -26,7 +26,7 @@ module Reek
       end
 
       def report_on(listener)
-        CodeParser.new(self).process(@source.syntax_tree)
+        CodeParser.new(@smell_repository).process(@source.syntax_tree)
         @smell_repository.report_on(listener)
       end
 
