@@ -36,6 +36,7 @@ module Reek
         ]
       end
 
+      # FIXME: Why do we need source_description?
       def initialize source_description, smell_classes=SmellRepository.smell_classes
         @typed_detectors = nil
         @detectors = Hash.new

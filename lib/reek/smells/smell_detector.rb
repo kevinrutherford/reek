@@ -44,6 +44,7 @@ module Reek
 
       attr_reader :smells_found   # SMELL: only published for tests
 
+      # FIXME: Should not need source name
       def initialize(source, config = self.class.default_config)
         @source = source
         @config = Core::SmellConfiguration.new(config)
