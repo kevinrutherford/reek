@@ -45,7 +45,7 @@ module Reek
       end
 
       def configure(klass, config)
-        @detectors[klass].configure_with(config)
+        @detectors[klass].configure_with(config) if @detectors[klass]
       end
 
       def report_on listener
