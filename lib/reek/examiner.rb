@@ -31,13 +31,12 @@ module Reek
       sources = Source::SourceRepository.parse(source)
       @description = sources.description
       collector = Core::WarningCollector.new
-      smell_classes = if smell_names.empty?
-                        Core::SmellRepository.smell_classes
-                      else
-                        smell_names.map { |name|
-                          Core::SmellRepository.smell_classes.find {|klass| klass.smell_class_name == name }
-                        }
-                      end
+
+      smell_classes = Core::SmellRepository.smell_classes
+      if smell_names.any?
+        smell_classes.select! { |klass| smell_names.include? klass.smell_class_name }
+      end
+
       sources.each do |src|
         repository = Core::SmellRepository.new(src.desc, smell_classes)
         Core::Sniffer.new(src, config_files, repository).report_on(collector)
