@@ -14,5 +14,6 @@ Feature: Smell selection
       spec/samples/two_smelly_files/dirty_two.rb -- 2 warnings:
         Dirty#a calls @s.title twice (DuplicateMethodCall)
         Dirty#a calls puts(@s.title) twice (DuplicateMethodCall)
+      4 total warnings
 
       """
