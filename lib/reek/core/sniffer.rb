@@ -10,9 +10,9 @@ module Reek
     #
     class Sniffer
 
-      def initialize(src, config_files = [], smell_repository=Core::SmellRepository.new(src.desc))
+      def initialize(src, config_files = [], smell_repository = Core::SmellRepository.new(src.desc))
         @smell_repository = smell_repository
-        config_files.each{ |cf| Reek::Source::ConfigFile.new(cf).configure(self) }
+        config_files.each { |cf| Reek::Source::ConfigFile.new(cf).configure(self) }
         @source = src
         src.configure(self)
       end
