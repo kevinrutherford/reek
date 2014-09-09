@@ -15,4 +15,4 @@ CLOBBER.include("#{BUILD_DIR}/*")
 
 Dir['tasks/**/*.rake'].each { |t| load t }
 
-task :default => [:test]
+task default: [:test]
